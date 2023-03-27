@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --theme-color: #f15a25;
+    --insturment-background-color: #333333;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.full-screen {
+    height: 100vh;
+    width: 100vw;
+}
+
+.background-theme {
+    background-color: var(--theme-color);
+}
+
+.background-instrument {
+    background-color: var(--insturment-background-color);
+}
