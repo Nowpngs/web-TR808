@@ -32,5 +32,9 @@ body {
 }
 
 .button-theme {
-    background-color: var(--theme-color);;
+    background-color: var(--theme-color);
+}
+
+.btn-active:active {
+    opacity: 0.5;
 }

@@ -7,7 +7,7 @@ export interface SequecerStepProps {
 export default function SequecerStep(props: SequecerStepProps) {
   return (
     <div
-      className="w-full h-full px-1.5 flex items-end"
+      className="w-full h-full px-1.5 flex items-end btn-active"
       onClick={() => {
         props.onClick();
       }}

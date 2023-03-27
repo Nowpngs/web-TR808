@@ -20,7 +20,7 @@ export default function MainSequencer(props: MainSequencerProps) {
       <div className="w-1/12 pr-2.5">
         <div className="h-full w-full rounded-xl flex justify-center">
           <button
-            className="button-theme rounded-xl w-full font-bold"
+            className="button-theme rounded-xl w-full font-bold btn-active"
             onClick={() => {
               props.onTogglePlay();
             }}
@@ -47,7 +47,7 @@ export default function MainSequencer(props: MainSequencerProps) {
       </div>
       <div className="w-1/12 pl-2.5">
         <div className="h-full w-full rounded-xl">
-          <button className="button-theme rounded-xl w-full h-full font-bold">
+          <button className="button-theme rounded-xl w-full h-full font-bold btn-active">
             TAP
           </button>
         </div>
