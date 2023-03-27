@@ -1,6 +1,9 @@
 import SequecerStep from "./sequencer-step";
 
-export interface MainSequencerProps {}
+export interface MainSequencerProps {
+  playing: boolean;
+  onTogglePlay: () => void;
+}
 
 export default function MainSequencer(props: MainSequencerProps) {
   const steps = new Array(16).fill(false);
@@ -38,8 +41,13 @@ export default function MainSequencer(props: MainSequencerProps) {
     <div className="background-instrument w-full h-full flex flex-wrap">
       <div className="w-1/12 pr-2.5">
         <div className="h-full w-full rounded-xl flex justify-center">
-          <button className="button-theme rounded-xl w-full font-bold">
-            START
+          <button
+            className="button-theme rounded-xl w-full font-bold"
+            onClick={() => {
+              props.onTogglePlay();
+            }}
+          >
+            {props.playing ? "PAUSE" : "PLAY"}
           </button>
         </div>
       </div>
