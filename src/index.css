@@ -4,7 +4,8 @@
 
 :root {
     --theme-color: #f15a25;
-    --insturment-background-color: #333333;
+    --instrument-background-color: #333333;
+    --instrument-secondary-color: #cccccc;
 }
 
 html,
@@ -23,5 +24,14 @@ body {
 }
 
 .background-instrument {
-    background-color: var(--insturment-background-color);
+    background-color: var(--instrument-background-color);
+}
+
+.background-instrument-secondary {
+    background-color: var(--instrument-secondary-color);
+}
+
+.button-theme {
+    background-color: var(--theme-color);
+    border: 3px solid var(--instrument-background-color);
 }
