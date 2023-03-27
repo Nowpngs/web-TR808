@@ -1,5 +1,5 @@
 export interface SequecerStepProps {
-  active?: boolean;
+  active: boolean;
   color: string;
   onClick: () => void;
 }
@@ -19,7 +19,7 @@ export default function SequecerStep(props: SequecerStepProps) {
         <div className="w-full pt-2.5 flex justify-center">
           <div
             className={`w-[15px] h-[15px] rounded-full ${
-              props.active ? "bg-blue" : "bg-black"
+              props.active ? "bg-cyan-100" : "bg-black"
             }`}
           >
             &nbsp;

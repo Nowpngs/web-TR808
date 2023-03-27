@@ -4,10 +4,16 @@ import SequecerStep from "./sequencer-step";
 export interface MainSequencerProps {
   playing: boolean;
   onTogglePlay: () => void;
+  stepState: boolean[];
+  onStepStateChange: (stepState: boolean[]) => void;
 }
 
 export default function MainSequencer(props: MainSequencerProps) {
-  const steps = new Array(16).fill(false);
+  function toggleStepState(idx: number) {
+    const newStepState = [...props.stepState];
+    newStepState[idx] = !newStepState[idx];
+    props.onStepStateChange(newStepState);
+  }
 
   return (
     <div className="background-instrument w-full h-full flex flex-wrap">
@@ -26,14 +32,13 @@ export default function MainSequencer(props: MainSequencerProps) {
       <div className="w-10/12">
         <div className="h-full w-full">
           <div className="flex justify-between h-full w-full items-end">
-            {steps.map((item, idx) => (
+            {props.stepState.map((item, idx) => (
               <SequecerStep
                 key={idx}
                 active={item}
                 color={calculateGradientColors(idx)}
                 onClick={() => {
-                  // TODO: update the state
-                  console.log(idx);
+                  toggleStepState(idx);
                 }}
               />
             ))}

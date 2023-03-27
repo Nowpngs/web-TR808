@@ -16,10 +16,17 @@ export default function MainProcesser() {
       <div className="pb-10 px-16 h-1/5">
         <MainSequencer
           playing={sequencerState.playing}
+          stepState={sequencerState.kick}
           onTogglePlay={() => {
             setSequencerState({
               ...sequencerState,
               playing: !sequencerState.playing,
+            });
+          }}
+          onStepStateChange={(stepState) => {
+            setSequencerState({
+              ...sequencerState,
+              kick: stepState,
             });
           }}
         />
