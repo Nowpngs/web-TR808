@@ -28,7 +28,7 @@ export default function MainProcesser() {
     }
   }, [beat]);
 
-  function configLoop() {
+  function configLoop(): void {
     Tone.Transport.bpm.value = 60;
     Tone.Transport.scheduleRepeat(() => beatLoop(), "16n");
   }
