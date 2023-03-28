@@ -30,10 +30,10 @@ export default function MainProcesser() {
 
   function configLoop() {
     Tone.Transport.bpm.value = 60;
-    Tone.Transport.scheduleRepeat(beatLoop, "16n");
+    Tone.Transport.scheduleRepeat(() => beatLoop(), "16n");
   }
 
-  function beatLoop(time: number): void {
+  function beatLoop(): void {
     setBeat((prevBeat) => (prevBeat + 1) % 16);
   }
 
