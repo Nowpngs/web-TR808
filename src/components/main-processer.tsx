@@ -58,6 +58,7 @@ export default function MainProcesser() {
       </div>
       <div className="pb-10 px-16 h-1/5">
         <MainSequencer
+          beat={beat}
           playing={sequencerState.playing}
           stepState={sequencerState.kick}
           onTogglePlay={() => {

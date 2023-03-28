@@ -6,6 +6,7 @@ export interface MainSequencerProps {
   onTogglePlay: () => void;
   stepState: boolean[];
   onStepStateChange: (stepState: boolean[]) => void;
+  beat: number;
 }
 
 export default function MainSequencer(props: MainSequencerProps) {
@@ -35,6 +36,8 @@ export default function MainSequencer(props: MainSequencerProps) {
             {props.stepState.map((item, idx) => (
               <SequecerStep
                 key={idx}
+                isPlaying={props.playing}
+                isCurrentBeat={props.beat === idx}
                 active={item}
                 color={calculateGradientColors(idx)}
                 onClick={() => {
