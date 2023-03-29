@@ -4,6 +4,7 @@
 
 :root {
     --theme-color: #f15a25;
+    --secondary-color: #d2ceb2;
     --instrument-background-color: #333333;
     --instrument-secondary-color: #cccccc;
 }
@@ -23,6 +24,10 @@ body {
     background-color: var(--theme-color);
 }
 
+.background-secondary {
+    background-color: var(--secondary-color);
+}
+
 .background-instrument {
     background-color: var(--instrument-background-color);
 }
@@ -37,4 +42,12 @@ body {
 
 .btn-active:active {
     opacity: 0.5;
+}
+
+.border-theme {
+    border-top: 3px solid var(--theme-color);
+}
+
+.text-theme {
+    color: var(--theme-color);
 }
