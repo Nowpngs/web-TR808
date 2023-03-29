@@ -1,6 +1,8 @@
 import { InstrumentChannelType } from "../models/instrument.model";
 
-export const InstrumentChannelTypeMap = {
+export const InstrumentChannelTypeMap: {
+  [key in InstrumentChannelType]: string;
+} = {
   [InstrumentChannelType.ACCENT]: "ACcent",
   [InstrumentChannelType.BASSDRUM]: "BassDrum",
   [InstrumentChannelType.SNAREDRUM]: "SnareDrum",
@@ -15,7 +17,7 @@ export const InstrumentChannelTypeMap = {
   [InstrumentChannelType.CLSOHIHAT]: "ClsoHihat",
 };
 
-export const InstrumentChannelTypeList = [
+export const InstrumentChannelTypeList: InstrumentChannelType[] = [
   InstrumentChannelType.ACCENT,
   InstrumentChannelType.BASSDRUM,
   InstrumentChannelType.SNAREDRUM,
