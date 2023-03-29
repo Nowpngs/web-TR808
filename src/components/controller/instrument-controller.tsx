@@ -18,7 +18,7 @@ export default function InstrumentController(props: InstrumentControllerProps) {
         ))}
       </div>
       <div className="h-1/5 w-full pt-2.5">
-        <div className=" h-[55%] font-bold w-full Çpx-16 flex justify-end items-center text-2xl text-white">
+        <div className=" h-[55%] font-bold w-full px-16 flex justify-end items-center text-2xl text-theme">
           Rythm Composer TR808
         </div>
         <div className="border-theme h-[45%] w-full px-16 font-bold flex justify-end items-center text-xl text-white">

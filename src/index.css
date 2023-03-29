@@ -42,3 +42,7 @@ body {
 .border-theme {
     border-top: 3px solid var(--theme-color);
 }
+
+.text-theme {
+    color: var(--theme-color);
+}
