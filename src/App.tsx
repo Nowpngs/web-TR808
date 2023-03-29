@@ -8,7 +8,7 @@ export default function App() {
       <div className="w-full text-white text-center pt-5 text-base font-bold">
         Web Application TR808 Emulator
       </div>
-      <div className="px-10 py-5 h-[700px]">
+      <div className="px-10 py-5 h-[800px] flex justify-center">
         <MainProcesser />
       </div>
     </div>

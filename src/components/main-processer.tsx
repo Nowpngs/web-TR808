@@ -52,7 +52,7 @@ export default function MainProcesser() {
   }
 
   return (
-    <div className="background-instrument w-full h-full rounded-xl">
+    <div className="background-instrument w-full h-full rounded-xl min-w-[1200px] md:max-w-[1600px]">
       <div className="pt-10 px-16 pb-5 h-4/5">
         <MainController />
       </div>
