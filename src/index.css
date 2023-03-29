@@ -38,3 +38,7 @@ body {
 .btn-active:active {
     opacity: 0.5;
 }
+
+.border-theme {
+    border-top: 3px solid var(--theme-color);
+}
