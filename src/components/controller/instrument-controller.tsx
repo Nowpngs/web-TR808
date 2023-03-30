@@ -9,6 +9,7 @@ export default function InstrumentController(props: InstrumentControllerProps) {
       <div className="h-4/5 w-full flex flex-wrap">
         {InstrumentChannelTypeList.map((item, idx) => (
           <div
+            key={idx}
             className={`w-1/12 h-full border-l-2 ${
               idx === InstrumentChannelTypeList.length - 1 && "border-r-2"
             }`}
