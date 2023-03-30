@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { calculateGradientColors } from "../../services/CommonFunctions";
 import SequecerStep from "./sequencer-step";
 
@@ -7,13 +8,31 @@ export interface MainSequencerProps {
   stepState: boolean[];
   onStepStateChange: (stepState: boolean[]) => void;
   beat: number;
+  onTempoChange: (tempo: number) => void;
 }
 
 export default function MainSequencer(props: MainSequencerProps) {
-  function toggleStepState(idx: number) {
+  const [lastTabTime, setLastTabTime] = useState<number>(0);
+
+  function toggleStepState(idx: number): void {
     const newStepState = [...props.stepState];
     newStepState[idx] = !newStepState[idx];
     props.onStepStateChange(newStepState);
+  }
+
+  function updateTempo(): void {
+    const timeDiff = Date.now() - lastTabTime;
+    const newTempo = Math.round(60000 / timeDiff);
+    setLastTabTime(Date.now());
+    if (newTempo < 50) {
+      props.onTempoChange(50);
+      return;
+    }
+    if (newTempo > 200) {
+      props.onTempoChange(200);
+      return;
+    }
+    props.onTempoChange(newTempo);
   }
 
   return (
@@ -50,7 +69,10 @@ export default function MainSequencer(props: MainSequencerProps) {
       </div>
       <div className="w-1/12 pl-2.5">
         <div className="h-full w-full rounded-xl">
-          <button className="button-theme rounded-xl w-full h-full font-bold btn-active">
+          <button
+            className="button-theme rounded-xl w-full h-full font-bold btn-active"
+            onClick={updateTempo}
+          >
             TAP
           </button>
         </div>
