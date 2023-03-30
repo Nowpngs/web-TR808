@@ -11,17 +11,21 @@ export default function MainProcesser() {
   const [start, setStart] = useState<boolean>(false);
   const [beat, setBeat] = useState<number>(0);
   const [tempo, setTempo] = useState<number>(60);
-  const kick = new Tone.Synth({
-    oscillator: {
-      type: "sine",
-    },
-    envelope: {
-      attack: 0.001,
-      decay: 0.1,
-      sustain: 0.1,
-      release: 0.1,
-    },
-  }).toDestination();
+  const [kick, setKick] = useState<Tone.Synth>(() => {
+    const synth = new Tone.Synth({
+      oscillator: {
+        type: "sine",
+      },
+      envelope: {
+        attack: 0.001,
+        decay: 0.1,
+        sustain: 0.1,
+        release: 0.1,
+      },
+    }).toDestination();
+
+    return synth;
+  });
 
   useEffect(() => {
     if (sequencerState.kick[beat]) {
