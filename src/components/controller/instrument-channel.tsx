@@ -3,6 +3,7 @@ import {
   InstrumentChannelTypeMap,
 } from "../../constants/instrument-constants";
 import { InstrumentChannelType } from "../../models/instrument.model";
+import ControlKnob from "../knob/control-knob";
 export interface InstrumentChannelProps {
   instrumentChannelType: InstrumentChannelType;
 }
@@ -18,7 +19,9 @@ export default function InstrumentChannel(props: InstrumentChannelProps) {
               <div className="w-full h-1/5 text-white text-xs font-bold flex justify-center items-center">
                 LEVEL
               </div>
-              <div className="w-full h-4/5"> </div>
+              <div className="w-full h-4/5">
+                <ControlKnob />
+              </div>
             </div>
           )}
         </div>
