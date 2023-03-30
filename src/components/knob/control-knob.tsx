@@ -1,7 +1,9 @@
 import { useEffect, useRef } from "react";
 import { isServerSide } from "../../services/CommonFunctions";
 
-interface ControlKnobProps {}
+interface ControlKnobProps {
+  className?: string;
+}
 
 export default function ControlKnob(props: ControlKnobProps) {
   const knobRef = useRef<HTMLDivElement>(null);
@@ -51,7 +53,7 @@ export default function ControlKnob(props: ControlKnobProps) {
 
   return (
     <div className="w-full h-full flex justify-center items-center">
-      <div className="slider">
+      <div className={`slider ${props.className}`}>
         <div className="knob" ref={knobRef}></div>
       </div>
     </div>

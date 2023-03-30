@@ -20,7 +20,7 @@ export default function InstrumentChannel(props: InstrumentChannelProps) {
                 LEVEL
               </div>
               <div className="w-full h-4/5">
-                <ControlKnob />
+                <ControlKnob className="background-theme rounded-full" />
               </div>
             </div>
           )}
@@ -32,7 +32,9 @@ export default function InstrumentChannel(props: InstrumentChannelProps) {
               <div className="w-full h-1/5 text-white text-xs font-bold flex justify-center items-center">
                 TONE
               </div>
-              <div className="w-full h-4/5"> </div>
+              <div className="w-full h-4/5">
+                <ControlKnob className="bg-black rounded-full" />
+              </div>
             </div>
           )}
           {InstrumentChannelControlParams[props.instrumentChannelType].tuning
@@ -41,7 +43,9 @@ export default function InstrumentChannel(props: InstrumentChannelProps) {
               <div className="w-full h-1/5 text-white text-xs font-bold flex justify-center items-center">
                 TUNING
               </div>
-              <div className="w-full h-4/5"> </div>
+              <div className="w-full h-4/5">
+                <ControlKnob className="bg-black rounded-full" />
+              </div>
             </div>
           )}
         </div>
@@ -52,7 +56,20 @@ export default function InstrumentChannel(props: InstrumentChannelProps) {
               <div className="w-full h-1/5 text-white text-xs font-bold flex justify-center items-center">
                 DECAY
               </div>
-              <div className="w-full h-4/5"> </div>
+              <div className="w-full h-4/5">
+                <ControlKnob className="bg-black rounded-full" />
+              </div>
+            </div>
+          )}
+          {InstrumentChannelControlParams[props.instrumentChannelType].snappy
+            .active && (
+            <div className="w-full h-full flex flex-wrap justify-center items-center">
+              <div className="w-full h-1/5 text-white text-xs font-bold flex justify-center items-center">
+                SNAPPY
+              </div>
+              <div className="w-full h-4/5">
+                <ControlKnob className="bg-black rounded-full" />
+              </div>
             </div>
           )}
         </div>
