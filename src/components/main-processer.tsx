@@ -10,6 +10,7 @@ export default function MainProcesser() {
   );
   const [start, setStart] = useState<boolean>(false);
   const [beat, setBeat] = useState<number>(0);
+  const [tempo, setTempo] = useState<number>(60);
   const kick = new Tone.Synth({
     oscillator: {
       type: "sine",
@@ -28,8 +29,12 @@ export default function MainProcesser() {
     }
   }, [beat]);
 
+  useEffect(() => {
+    Tone.Transport.bpm.value = tempo;
+  }, [tempo]);
+
   function configLoop(): void {
-    Tone.Transport.bpm.value = 60;
+    Tone.Transport.bpm.value = tempo;
     Tone.Transport.scheduleRepeat(() => beatLoop(), "16n");
   }
 
@@ -69,6 +74,9 @@ export default function MainProcesser() {
               ...sequencerState,
               kick: stepState,
             });
+          }}
+          onTempoChange={(tempo) => {
+            setTempo(tempo);
           }}
         />
       </div>
