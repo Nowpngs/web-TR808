@@ -38,8 +38,10 @@ export default function MainProcesser() {
   }, [tempo]);
 
   function configLoop(): void {
-    Tone.Transport.bpm.value = tempo;
+    Tone.Transport.loop = true;
+    Tone.Transport.loopEnd = "5m";
     Tone.Transport.scheduleRepeat(() => beatLoop(), "16n");
+    Tone.Transport.scheduleOnce(() => setStart(false), "5m");
   }
 
   function beatLoop(): void {
