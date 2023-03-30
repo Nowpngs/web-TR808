@@ -1,3 +1,7 @@
+export function isServerSide(): boolean {
+  return typeof window === "undefined";
+}
+
 export function calculateGradientColors(index: number): string {
   const startColor = "hsl(16, 87.93%, 54.51%)";
   const endColor = "hsl(46, 94%, 61%)";

@@ -52,3 +52,33 @@ body {
 .text-theme {
     color: var(--theme-color);
 }
+
+.slider::before {
+    border: 5px solid white;
+    width: 3em;
+    height: 3em;
+}
+
+.slider::before,
+.knob {
+    position: relative;
+    height: 3em;
+    width: 3em;
+}
+
+.knob::before,
+.knob::after,
+.slider::before {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+}
+
+.knob::before {
+    top: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    background: white;
+}
