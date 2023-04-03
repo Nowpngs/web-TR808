@@ -22,6 +22,7 @@ export default function MainProcesser() {
   useEffect(() => {
     if (sequencerState.kick[beat] && instrumentEngine) {
       instrumentEngine.bassDrum.trigger();
+      instrumentEngine.snareDrum.trigger();
     }
   }, [beat]);
 

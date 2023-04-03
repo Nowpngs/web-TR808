@@ -1,4 +1,5 @@
 import { BassDrum } from "../engines/bass-drum";
+import { SnareDrum } from '../engines/snare-drum';
 
 export enum InstrumentChannelType {
   ACCENT,
@@ -49,8 +50,10 @@ export class ControlParams {
 
 export class InstrumentEngine {
   bassDrum: BassDrum;
+  snareDrum: SnareDrum;
 
   constructor() {
     this.bassDrum = new BassDrum();
+    this.snareDrum = new SnareDrum();
   }
 }
