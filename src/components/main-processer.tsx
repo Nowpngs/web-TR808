@@ -3,6 +3,7 @@ import { SequencerState } from "../models/sequencer.model";
 import MainController from "./controller/main-controller";
 import MainSequencer from "./sequencer/main-sequencer";
 import * as Tone from "tone";
+import { InstrumentEngine } from "../models/instrument.model";
 
 export default function MainProcesser() {
   const [sequencerState, setSequencerState] = useState<SequencerState>(
@@ -11,25 +12,16 @@ export default function MainProcesser() {
   const [start, setStart] = useState<boolean>(false);
   const [beat, setBeat] = useState<number>(0);
   const [tempo, setTempo] = useState<number>(60);
-  const [kick, setKick] = useState<Tone.Synth>(() => {
-    const synth = new Tone.Synth({
-      oscillator: {
-        type: "sine",
-      },
-      envelope: {
-        attack: 0.001,
-        decay: 0.1,
-        sustain: 0.1,
-        release: 0.1,
-      },
-    }).toDestination();
-
-    return synth;
-  });
+  const [instrumentEngine, setInstrumentEngine] =
+    useState<InstrumentEngine | null>(null);
 
   useEffect(() => {
-    if (sequencerState.kick[beat]) {
-      kick.triggerAttackRelease("C2", "16n");
+    setInstrumentEngine(new InstrumentEngine());
+  }, []);
+
+  useEffect(() => {
+    if (sequencerState.kick[beat] && instrumentEngine) {
+      instrumentEngine.bassDrum.trigger();
     }
   }, [beat]);
 
