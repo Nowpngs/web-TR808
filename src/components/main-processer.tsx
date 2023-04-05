@@ -3,7 +3,10 @@ import { SequencerState } from "../models/sequencer.model";
 import MainController from "./controller/main-controller";
 import MainSequencer from "./sequencer/main-sequencer";
 import * as Tone from "tone";
-import { InstrumentEngine } from "../models/instrument.model";
+import {
+  InstrumentChannelType,
+  InstrumentEngine,
+} from "../models/instrument.model";
 
 export default function MainProcesser() {
   const [sequencerState, setSequencerState] = useState<SequencerState>(
@@ -14,6 +17,8 @@ export default function MainProcesser() {
   const [tempo, setTempo] = useState<number>(60);
   const [instrumentEngine, setInstrumentEngine] =
     useState<InstrumentEngine | null>(null);
+  const [selectedInstrument, setSelectedInstrument] =
+    useState<InstrumentChannelType>(InstrumentChannelType.BASSDRUM);
 
   useEffect(() => {
     setInstrumentEngine(new InstrumentEngine());
@@ -58,7 +63,12 @@ export default function MainProcesser() {
   return (
     <div className="background-instrument w-full h-full rounded-xl min-w-[1100px] md:max-w-[1600px]">
       <div className="pt-10 px-16 pb-5 h-4/5">
-        <MainController />
+        <MainController
+          selectInstrument={selectedInstrument}
+          onSelectInstrument={(value) => {
+            setSelectedInstrument(value);
+          }}
+        />
       </div>
       <div className="pb-10 px-16 h-1/5">
         <MainSequencer
