@@ -2,6 +2,7 @@ import {
   ControlParams,
   InstrumentChannelType,
   InstrumentControlParams,
+  InsturmentOption,
 } from "../models/instrument.model";
 
 export const InstrumentChannelTypeMap: {
@@ -95,3 +96,54 @@ export const InstrumentChannelControlParams: {
     new ControlParams(true) // Level
   ),
 };
+
+export const InstrumentOptions: InsturmentOption[] = [
+  {
+    value: InstrumentChannelType.ACCENT,
+    label: InstrumentChannelTypeMap[InstrumentChannelType.ACCENT],
+  },
+  {
+    value: InstrumentChannelType.BASSDRUM,
+    label: InstrumentChannelTypeMap[InstrumentChannelType.BASSDRUM],
+  },
+  {
+    value: InstrumentChannelType.SNAREDRUM,
+    label: InstrumentChannelTypeMap[InstrumentChannelType.SNAREDRUM],
+  },
+  {
+    value: InstrumentChannelType.LOWTOM,
+    label: InstrumentChannelTypeMap[InstrumentChannelType.LOWTOM],
+  },
+  {
+    value: InstrumentChannelType.MIDTOM,
+    label: InstrumentChannelTypeMap[InstrumentChannelType.MIDTOM],
+  },
+  {
+    value: InstrumentChannelType.HITOM,
+    label: InstrumentChannelTypeMap[InstrumentChannelType.HITOM],
+  },
+  {
+    value: InstrumentChannelType.RIMSHOT,
+    label: InstrumentChannelTypeMap[InstrumentChannelType.RIMSHOT],
+  },
+  {
+    value: InstrumentChannelType.HANDCLAP,
+    label: InstrumentChannelTypeMap[InstrumentChannelType.HANDCLAP],
+  },
+  {
+    value: InstrumentChannelType.COWBELL,
+    label: InstrumentChannelTypeMap[InstrumentChannelType.COWBELL],
+  },
+  {
+    value: InstrumentChannelType.CYMBAL,
+    label: InstrumentChannelTypeMap[InstrumentChannelType.CYMBAL],
+  },
+  {
+    value: InstrumentChannelType.OPENHIHAT,
+    label: InstrumentChannelTypeMap[InstrumentChannelType.OPENHIHAT],
+  },
+  {
+    value: InstrumentChannelType.CLSOHIHAT,
+    label: InstrumentChannelTypeMap[InstrumentChannelType.CLSOHIHAT],
+  },
+];
